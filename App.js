@@ -4,6 +4,7 @@ const ageInput = document.getElementById("age");
 const genderInput = document.getElementById("gender");
 const activityLevelInput = document.getElementById("activity-level");
 
+
 const generateMealsButton = document.getElementById("generate-meals-btn");
 const mealsContener = document.getElementById('meals');
 const recipeContener = document.getElementById("recipe");
