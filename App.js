@@ -4,11 +4,13 @@ const ageInput = document.getElementById("age");
 const genderInput = document.getElementById("gender");
 const activityLevelInput = document.getElementById("activity-level");
 
-
 const generateMealsButton = document.getElementById("generate-meals-btn");
 const mealsContener = document.getElementById('meals');
 const recipeContener = document.getElementById("recipe");
 const recipeList = document.getElementById("recipeList");
+const table = document.getElementById("table");
+const stepsBtn = document.getElementById("stepsBtn");
+const recipeSteps = document.getElementById("recipeSteps");
 
 let mealRecipe;
 
@@ -19,6 +21,10 @@ generateMealsButton.addEventListener('click', (e)=>{
     recipeList.innerHTML = "";
     if(!recipeContener.classList.contains("display")){
         recipeContener.classList.add("display");
+    }
+    recipeSteps.innerHTML = "";
+    if(!recipeSteps.classList.contains("display")){
+        recipeSteps.classList.add("display");
     }
     mealRecipe = {};
 
@@ -54,7 +60,7 @@ generateMealsButton.addEventListener('click', (e)=>{
         
         try{
             async function runApis(){
-                const allMeals = await fetch(`https://api.spoonacular.com/mealplanner/generate?apiKey=a08cd33f5f904c52b8939731f8cfc227&timeFrame=day&targetCalories=${bmr}`);
+                const allMeals = await fetch(`https://api.spoonacular.com/mealplanner/generate?apiKey=530c1e9ff9bd449d99fa0341c3000355&timeFrame=day&targetCalories=${bmr}`);
                 const mealsObj = await allMeals.json();
                 let mealCount = 0;
                 mealsObj.meals.forEach((eachMeal)=>{
@@ -91,7 +97,7 @@ generateMealsButton.addEventListener('click', (e)=>{
                     mealDiv.append(mealTypeHeading, mealDesDiv);
                     mealsContener.append(mealDiv);
                 
-                    fetch(`https://api.spoonacular.com/recipes/${eachMeal.id}/information?apiKey=a08cd33f5f904c52b8939731f8cfc227`)
+                    fetch(`https://api.spoonacular.com/recipes/${eachMeal.id}/information?apiKey=530c1e9ff9bd449d99fa0341c3000355`)
                     .then((rel)=> rel.json())
                     .then((recipeObj)=>{
                         mealRecipe[eachMeal.id]= recipeObj;
@@ -135,7 +141,14 @@ function getRecipe(e){
         recipeContener.classList.remove("display");
     }
     recipeList.innerHTML = "";
+    recipeSteps.innerHTML = "";
+    if(stepsBtn.textContent == "Ingredients"){
+        stepsBtn.textContent = "Steps";
+        table.classList.remove("display");
+        recipeSteps.classList.add("display");
+    }
     let recipeDetails = mealRecipe[e.target.id];
+    recipeSteps.innerHTML = recipeDetails.instructions;
     recipeDetails.extendedIngredients.forEach((element)=>{
         const row = document.createElement("tr");
         const ingredients = document.createElement("td");
@@ -150,6 +163,19 @@ function getRecipe(e){
         recipeList.append(row);
     })
 }
+
+stepsBtn.addEventListener("click",()=>{
+    if(stepsBtn.textContent == "Steps"){
+        stepsBtn.textContent = "Ingredients";
+        table.classList.add("display");
+        recipeSteps.classList.remove("display");
+    }
+    else{
+        stepsBtn.textContent = "Steps";
+        table.classList.remove("display");
+        recipeSteps.classList.add("display");
+    }
+})
 
 heightInput.addEventListener("focus", ()=>{
     heightInput.id = "height";
