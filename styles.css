@@ -1,8 +1,9 @@
-
-#main-body{
+#body{
     background-color: rgb(228, 228, 228);
 }
-#main-page{
+
+/* User Work */
+#page{
     box-sizing: border-box;
     width: 1349px;
     height: 1400px;
@@ -19,26 +20,14 @@
     flex-direction: row;
     align-items: center;
     padding: 0px 0px 0px 100px;
-  
-   
 }
 #image-logo{
-    width:27px;
-   float:left;
- 
+    width: 65px;
 }
-#logo-mealPlanner{
-  font-size: 30px;
-  font-weight: lighter;
-  float: left;
-  color: white;
-font-family: SignPainter;
-  text-decoration: underline;
-  letter-spacing: 1.5px;
-  padding-left:10px;
-  padding-top:15px;
+#image-mealPlanner{
+    width: 400px;
 }
-#user-info{
+#user-work{
     box-sizing: border-box;
     width: 100%;
     margin: 15px 0px 0px 0px;
@@ -154,12 +143,16 @@ input::-webkit-inner-spin-button {
     color: white;
     background-color: rgb(236, 47, 47);
     font-weight: 500;
+    border: none;
+}
+#generate-meals-btn:hover{
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.973);
 }
 #generate-meals-btn:active{
     background-color: rgb(180, 36, 36);
     font-size: 15px;
+    box-shadow: none;
 }
-
 /* Meals */
 #meals{
     box-sizing: border-box;
@@ -195,6 +188,9 @@ input::-webkit-inner-spin-button {
     border-radius: 20px;
     border: 3px solid rgb(236, 47, 47);
 }
+.mealDescription:hover{
+    box-shadow: 2px 5px 15px rgb(180, 50, 50);
+}
 .mealImage{
     width: 100%;
     border-radius: 20px 20px 0px 0px;
@@ -218,21 +214,27 @@ input::-webkit-inner-spin-button {
     font-size: medium;
     font-weight: 500;
 }
+.mealButton:hover{
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.973);
+    border: none;
+}
 .mealButton:active{
     background-color: rgb(180, 36, 36);
     font-size: 15px;
+    box-shadow: none;
 }
 
 /* Recipe */
 .recipe{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: 15% 85%;
     background-color: rgb(228, 228, 228);
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 10px 0px 50px;
     overflow: auto;
     box-shadow: 2px 2px 5px black;
     height: 318px;
+    width: 100%;
 }
 .display{
     display: none;
@@ -241,8 +243,26 @@ input::-webkit-inner-spin-button {
 #recipe::-webkit-scrollbar {
     display: none;
 }
+#stepsBtn{
+    margin: auto;
+    border-radius: 15px;
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: rgb(236, 47, 47);
+    font-weight: 500;
+    border: none;
+}
+#stepsBtn:hover{
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.973);
+}
+#stepsBtn:active{
+    background-color: rgb(180, 36, 36);
+    font-size: 15px;
+    box-shadow: none;
+}
 table{
-    width: 80%;
+    width: 100%;
     /* border: 2px solid; */
     line-height: 40px;
     letter-spacing: 1px;
@@ -287,6 +307,12 @@ td, th{
         display: flex;
         flex-direction: column;
     }
+    .recipe{
+        padding: 5px;
+    }
+    table{
+        font-size: medium;
+    }
 }
 @media(max-width: 620px){
     #logo{
@@ -296,10 +322,10 @@ td, th{
     #image-logo{
         display: none;
     }
-    table{
+    /* table{
         width: 100%;
         letter-spacing: 0px;
-    }
+    } */
 }
 @media(max-width: 520px){
     #recipe{
@@ -310,7 +336,6 @@ td, th{
     }
     thead{
         font-size: medium;
-        color: rgb(236, 47, 47);
     }
     tbody{
         font-size: medium;
