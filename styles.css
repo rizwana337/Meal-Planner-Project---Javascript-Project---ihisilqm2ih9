@@ -1,9 +1,8 @@
-#body{
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+#main-body{
     background-color: rgb(228, 228, 228);
 }
-
-/* User Work */
-#page{
+#main-page{
     box-sizing: border-box;
     width: 1349px;
     height: 1400px;
@@ -20,14 +19,47 @@
     flex-direction: row;
     align-items: center;
     padding: 0px 0px 0px 100px;
+  
+   
 }
 #image-logo{
-    width: 65px;
+    width:40px;
+   float:left;
+ 
 }
-#image-mealPlanner{
-    width: 400px;
+#logo-mealPlanner{
+  font-size: 30px;
+  font-weight: lighter;
+  float: left;
+  color: white;
+  font-family: Georgia, serif;
+    letter-spacing: 1.5px;
+  padding-left:10px;
+  padding-top:15px;
 }
-#user-work{
+.app-content{
+    background: #fff;
+    width: 100%;
+text-align: center;
+margin-top: 20px;
+
+color: #000;
+font-family: serif;
+
+}
+.app-content h1{
+    font-size: 70px;
+    text-transform:uppercase ;
+    font-weight: 800;
+      }
+  .app-content p{
+    margin: 20px 100px;
+    font-weight: 100;
+    line-height: 25px;
+    color: rgb(104, 100, 100);
+
+  }
+#user-info{
     box-sizing: border-box;
     width: 100%;
     margin: 15px 0px 0px 0px;
@@ -38,11 +70,22 @@
     grid-template-rows: 1fr 1.5fr 1fr;
     grid-gap: 50px;
 }
+ 
 #user-form{
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     justify-items: center;
 }
+/* #user-form .logo{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to bottom,#fff,#000);
+  
+    opacity: 0.3;
+    position: absolute;
+  
+  } */
 
 #inputType{
     display: grid;
@@ -143,16 +186,12 @@ input::-webkit-inner-spin-button {
     color: white;
     background-color: rgb(236, 47, 47);
     font-weight: 500;
-    border: none;
-}
-#generate-meals-btn:hover{
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.973);
 }
 #generate-meals-btn:active{
     background-color: rgb(180, 36, 36);
     font-size: 15px;
-    box-shadow: none;
 }
+
 /* Meals */
 #meals{
     box-sizing: border-box;
@@ -188,9 +227,6 @@ input::-webkit-inner-spin-button {
     border-radius: 20px;
     border: 3px solid rgb(236, 47, 47);
 }
-.mealDescription:hover{
-    box-shadow: 2px 5px 15px rgb(180, 50, 50);
-}
 .mealImage{
     width: 100%;
     border-radius: 20px 20px 0px 0px;
@@ -214,27 +250,21 @@ input::-webkit-inner-spin-button {
     font-size: medium;
     font-weight: 500;
 }
-.mealButton:hover{
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.973);
-    border: none;
-}
 .mealButton:active{
     background-color: rgb(180, 36, 36);
     font-size: 15px;
-    box-shadow: none;
 }
 
 /* Recipe */
 .recipe{
-    display: grid;
-    grid-template-rows: 15% 85%;
+    display: flex;
+    justify-content: center;
     background-color: rgb(228, 228, 228);
     border-radius: 10px;
-    padding: 20px 10px 0px 50px;
+    padding: 20px;
     overflow: auto;
     box-shadow: 2px 2px 5px black;
     height: 318px;
-    width: 100%;
 }
 .display{
     display: none;
@@ -262,7 +292,7 @@ input::-webkit-inner-spin-button {
     box-shadow: none;
 }
 table{
-    width: 100%;
+    width: 80%;
     /* border: 2px solid; */
     line-height: 40px;
     letter-spacing: 1px;
@@ -314,6 +344,7 @@ td, th{
         font-size: medium;
     }
 }
+
 @media(max-width: 620px){
     #logo{
         justify-content: center;
@@ -327,6 +358,123 @@ td, th{
         letter-spacing: 0px;
     } */
 }
+footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .container{
+    display:flex ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+footer .container .sec{
+    margin-right: 30px;
+}
+footer .container .sec.aboutus{
+    width: 40%;
+}
+footer .container h2{
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+footer .container  h2::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #f00;
+}
+footer p{
+    color: #999;
+}
+.sci{
+    margin-top: 20px;
+    display: flex;
+}
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+
+}
+.sci li a:hover{
+    background: #f00;
+}
+.sci li a .fa{
+    color: #fff;
+    font-size: 20px;
+}
+.quickLinks{
+    position: relative;
+    width: 25%;
+}
+.quickLinks ul li{
+    list-style: none;
+}
+.quickLinks ul li a{
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.quickLinks ul li a:hover{
+    color: #fff;
+}
+.contact{
+    width: calc(35% - 60px);
+    margin-right: 0 !important;
+    color: #999;
+    text-decoration: none;
+    position: relative;
+    list-style: none;
+
+}
+.contact i{
+    color: #fff;
+}
+.contact .info{
+    position: relative;
+}
+.contact .info li{
+    display: flex;
+    margin-bottom: 16px;
+}
+.contact .info li span:nth-child(1){
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.contact .info li span{
+    color: #999;
+}
+.contact .info li span p a{
+    color: #999;
+    text-decoration: none;
+}
+.contact .info li p a:hover{
+    color: #fff;
+}
 @media(max-width: 520px){
     #recipe{
         width: 345px;
@@ -336,6 +484,7 @@ td, th{
     }
     thead{
         font-size: medium;
+        /* color: rgb(236, 47, 47); */
     }
     tbody{
         font-size: medium;
@@ -353,5 +502,9 @@ td, th{
     #page{
         height: 395px;
         width: 395px;
+    }
+    .app-content h2{
+        height: 395px;
+        width: 395px; 
     }
 }
